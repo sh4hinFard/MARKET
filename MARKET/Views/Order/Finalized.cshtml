@@ -1,0 +1,129 @@
+﻿@model IEnumerable<MARKET.Models.SessionKalaViewModel>
+@{
+
+    Layout = "~/Views/Shared/_Layout_Home_User.cshtml";
+}
+
+<div class="container-fluid">
+    <form asp-action="Finaly" asp-controller="Order" method="post" class="clearfix checkout-form">
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="billing-details shadow-one p-4 mb-3">
+                    <p>مشتری فروشگاه هستید ؟ <a href="#">ورود</a></p>
+                    <div class="section-title">
+                        <h3 class="title">تکمیل اطلاعات</h3>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input class="form-control" type="text" name="Name" placeholder="نام">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="Family" placeholder="نام خانوادگی">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="Email" placeholder="ایمیل">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="Address" class="form-control" id="message" cols="30" rows="4" placeholder="آدرس"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="CityId" value="1" placeholder="شهر">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="OstanId" value="1" placeholder="استان">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="zipcode" placeholder="کد پستی">
+                    </div>
+
+                    <div class="number">
+                        <input class="form-control" type="tel" name="Phone" placeholder="تلفن">
+                    </div>
+                         
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="container-fluid">
+                    <div class="shiping-methods">
+                        <div class="section-title">
+                            <h4 class="title">روش های ارسال</h4>
+                        </div>
+                        @if (ViewBag.Post != null)
+                        {
+                            foreach (var I in ViewBag.Post)
+                            {
+                                <div class="input-checkbox">
+                                    <label for="shipping-1">@I.Name</label>
+                                    <div class="input-checkbox"
+                                         id="checkboxes">
+                                        <input onchange="red(@I.Price,@Model.Sum(i=>i.Price*i.Count));" id="sum" value="@I.Price" class="radio" type="radio" name="PostId">
+                                        <label for="shipping-1">@I.Price</label>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+
+                    <div class="payments-methods">
+                        <div class="section-title">
+                            <h4 class="title">روش های پرداخت</h4>
+                        </div>
+                        @if (ViewBag.Typeofpay != null)
+                        {
+                            foreach (var I in ViewBag.Typeofpay)
+                            {
+
+
+                                <div class="input-checkbox">
+                                    <input type="radio" name="PayId" value="@I.Id" checked>
+                                    <label for="payments-1">@I.Name</label>
+                                    <div class="caption">
+                                        <p>این یک سایت فروشگاهی نیست بلکه یک قالب آماده برای استفاده طراحان وب است
+                                        <p>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                    <input type="hidden" name="totalprice" id="ff" />
+                    <div class="proceed-checkout">
+                        <ul>
+                            <li class="subtotal">جمع کل <span id="dd">@Model.Sum(o => o.Price * o.Count)</span></li>
+                            <li class="cart-total">قابل پرداخت <span id="gg">@Model.Sum(o => o.Price * o.Count)</span></li>
+                        </ul>
+                        <button type="submit"  class="proceed-btn">پرداخت</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+    </form>
+</div>
+@section Scripts{ 
+<script>
+
+    function red(Price,Sum) {
+        $.ajax({
+            url: "/Order/sumtotal",
+            type: "Post",
+            data: {              
+                Price: Price,
+                Sum: Sum
+            }
+        }).done(function (data) {
+            /* $("#ff").val(data).val();*/         
+            $("#ff").val(data);
+            $("#dd").text(data);
+            $("#gg").text(data);
+
+        })
+    };
+        //if ($(".radio").is(":checked")) {
+        //    $("#sum").val($(this).val());
+        //}
+</script>
+}

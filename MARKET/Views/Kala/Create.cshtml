@@ -1,0 +1,197 @@
+﻿@using Be;
+@using BLL;
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout_Home.cshtml";
+}
+@section Pre{
+
+    <link href="/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">فروشگاه</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">ثبت محصول جدید</a></li>
+            </ol>
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"> ثبت محصول </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-validation">
+                            <form class="form-valide" asp-action="Create" asp-controller="Kala" method="post" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly"></div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">
+                                                نام محصول
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" name="Name" class="form-control" placeholder="نام محصول">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">
+                                                قیمت محصول <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"
+                                                       name="Price" placeholder="قیمت محصول">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">
+                                                تعداد محصول <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"
+                                                       name="Count" placeholder="تعداد محصول">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">
+                                                رنگ محصول  <span class="text-danger">*</span>
+                                            </label>
+
+                                            <div class="form-group row">
+
+                                                <div class="form-group">
+                                                    @foreach (var item in ViewBag.Color)
+                                                    {
+                                                        <div class="form-check form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input name="Color" type="checkbox" class="form-check-input" value="@item.Id">@item.Name
+                                                            </label>
+                                                        </div>
+                                                    }
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">
+                                                سایز محصول  <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="form-group row">
+
+                                                <div class="form-group">
+                                                    @foreach (var item in ViewBag.Size)
+                                                    {
+                                                        <div class="form-check form-check-inline">
+                                                            <label class="form-check-label">
+                                                                <input name="Size" type="checkbox" class="form-check-input" value="@item.Id">@item.Name
+                                                            </label>
+                                                        </div>
+                                                    }
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group row">
+            <label class="col-lg-4 col-form-label">
+                دسته عمومی
+            </label>
+            <div class="col-lg-6">*@
+                                    <div @*class="drop-up"*@>
+                                        <select name="Catogory1" id="Catogory1" asp-items="ViewBag.Catogory1">
+                                            <option>
+                                                انتخاب کنید
+                                            </option>
+                                        </select>
+                                    </div>
+                                    @*</div>
+            </div>*@
+                                    @*<div class="form-group row">
+            <label class="col-lg-4 col-form-label">
+                زیر دسته
+            </label>
+            <div class="col-lg-6">*@
+                                    <div>
+                                        <select name="Catogory" id="Catogory">
+                                        </select>
+                                    </div>
+                                    @*</div>
+            </div>*@
+                                    @*<div class="form-group row">
+            <label class="col-lg-4 col-form-label">
+                دسته اصلی
+            </label>
+            <div class="col-lg-6">*@
+                                    <div>
+                                        <select id="Catogoryreal" name="Catogoryreal">
+                                        </select>
+                                    </div>
+                                    @*</div>
+            </div>*@
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-primary btn-sm" type="button">عکس محصول</button>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input name="Pic" type="file" class="custom-file-input">
+                                            <label class="custom-file-label col-lg-5">انتخاب فایل</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group row">
+                                    <div class="col-lg-12 ml-auto">
+                                        <button type="submit" class="btn btn-rounded btn-primary col-lg-12">ثبت محصول</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $("#Catogory1").change(function () {
+            $("#Catogory").empty();
+            $.getJSON("/Kala/GetSubGroupByGroupId/" + $("#Catogory1 :selected").val(),
+                function (items) {
+                    $.each(items, function (i) {
+                        var option = $('<option></option>').attr("value", items[i].value).text(items[i].text);
+                        $("#Catogory").append(option);
+                        //$("#Catogory").trigger('chosen:updated');
+                    })
+                }
+            )
+        });
+    </script>
+    <script>
+        $("#Catogory").change(function () {
+            $("#Catogoryreal").empty();
+            $.getJSON("/Kala/GetSubGroupByGroupId/" + $("#Catogory :selected").val(),
+                function (items) {
+                    $.each(items, function (i) {
+                        var option = $('<option></option>').attr("value", items[i].value).text(items[i].text);
+                        $("#Catogoryreal").append(option);
+                        //$("#Catogory").trigger('chosen:updated');
+                    })
+                }
+            )
+        });
+    </script>
+    <script src="/vendor/bootstrap-datetimepicker/js/moment.js" type="text/javascript"></script>
+    <script src="/vendor/global/global.min.js" type="text/javascript"></script>
+    <script src="/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"
+            type="text/javascript"></script>
+    <script src="/vendor/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
+    <script src="/js/custom.min.js" type="text/javascript"></script>
+
+}

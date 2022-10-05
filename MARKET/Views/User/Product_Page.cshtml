@@ -1,0 +1,259 @@
+﻿@model Be.Kala
+@{
+    Layout = "~/Views/Shared/_Layout_Home_User.cshtml";
+}
+<!-- breadcrumb -->
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="#">صفحه اصلی</a></li>
+            <li><a href="#">محصولات</a></li>
+            <li><a href="#">جزئیات محصول</a></li>
+            <li class="active"></li>
+        </ul>
+    </div>
+</div>
+<!-- end breadcrumb -->
+<!-- main -->
+
+<div class="container-fluid mt-4 mb-4">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+
+            <div id="p-details-slider" class="carousel slide main-slider" data-bs-ride="carousel">
+                <div class="border-style"></div>
+                <div class="carousel-indicators carousel-indicators-change bg-gradient">
+                    <img src="/images/dress-shirt-img.png" data-bs-target="#p-details-slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                    <img src="/images/tshirt-img.png" data-bs-target="#p-details-slider" data-bs-slide-to="1" aria-label="Slide 2">
+                    <img src="/images/women-clothes-img.png" data-bs-target="#p-details-slider" data-bs-slide-to="2" aria-label="Slide 3">
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <!-- fashion section start -->
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="tshirt_img "><img style="height:500px;width:700px" src="/images/product/@Model.Pic"></div>
+                        </div>
+                        <!-- fashion section end -->
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="p-details-info">
+                <a href="#" class="heart">
+                    <i class="icon_heart_alt">
+                    </i>
+                    <span>افزودن به علاقه مندی</span>
+                </a>
+                <form asp-action="Index" asp-controller="Home" method="post">
+                    <input name="Pic" type="hidden" value="@Model.Pic" />
+                    <div class="product-body">
+                        <div class="product-label">
+                            <span>جدید</span>
+                            <span class="sale">20% تخفیف</span>
+                        </div>
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <h2 class="product-name"></h2>
+                        <input name="Name" type="hidden" value="@Model.Name" />
+                        <h3 class="product-price">390000 <del class="product-old-price">400000</del></h3>
+                        <input name="Price" type="hidden" value="@Model.Price" />
+                        <div>
+                            <div class="product-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star empty"></i>
+                            </div>
+                            <a class="cm" href="#">دیدگاه(3) / افزودن دیدگاه</a>
+                        </div>
+                        <p><strong>موجودی:</strong> موجود در انبار</p>
+                        <p><strong>برند:</strong> شیفته </p>
+                        <p>این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.</p>
+                        <div class="product-options">
+                            <ul class="size-option">
+                                <li><span>اندازه:</span></li>
+                                @foreach (var i in ViewBag.Size)
+                                {
+                                    <li class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input name="SizeId" type="checkbox" class="form-check-input" value="@i.Id">@i.Size.Name
+                                            <input type="hidden" name="Size" value="@i.Size.Name" />
+                                        </label>
+                                    </li>
+                                }
+                            </ul>
+                            <ul class="color-option">
+                                <li><span>رنگ:</span></li>
+                                @foreach (var i in ViewBag.Color)
+                                {
+                                    <li class="form-check form-check-inline">
+                                        <label class="form-check-label">
+                                            <input name="ColorId" type="checkbox" class="form-check-input" value="@i.Id">@i.Color.Name
+                                            <input type="hidden" name="Color" value="@i.Color.Name" />
+                                        </label>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="add-cart-list">
+                            <p> تعداد:</p>
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input name="Count" type="text" value="1">
+                                </div>
+                            </div>
+                            <button type="submit" class="add-to-cart btn btn-secondary">
+                                <span><i class="icon_bag_alt fa-1x p-2"></i></span>
+                                افزودن به سبد
+                            </button>
+                        </div>
+                    </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+  
+</div>
+
+<div class="container-fluid">
+    <ul class="nav nav-tabs" id="prudoct-cm-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="details-tab" data-bs-toggle="tab" data-bs-target="#details" role="tab" aria-controls="details" aria-selected="true">توضیحات </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" role="tab" aria-controls="profile" aria-selected="false">جزئیات</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" role="tab" aria-controls="contact" aria-selected="false">دیدگاه (4)</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active m-4" id="details" role="tabpanel" aria-labelledby="details-tab">
+            <p>
+                این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. این یک قالب فروشگاهی آماده جهت استفاده
+                طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد
+                و تمام محصولات موجود در آن بعنوان نمونه طراحی است. این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.
+            </p>
+
+
+        </div>
+        <div class="tab-pane fade m-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <p>
+                این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. این یک قالب فروشگاهی آماده جهت استفاده
+                طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد
+                و تمام محصولات موجود در آن بعنوان نمونه طراحی است. این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.
+            </p>
+
+        </div>
+        <div class="tab-pane fade m-4" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="product-reviews">
+                        <div class="single-review">
+                            <div class="review-heading">
+                                <div><a href="#"><i class="fa fa-user-alt"></i> علی</a></div>
+                                <div><a href="#"><i class="fa fa-clock"></i> 1400/10/01 - 6:00 بعد از ظهر</a></div>
+                                <div class="review-rating pull-right">
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star_alt empty"></i>
+                                </div>
+                            </div>
+                            <div class="review-body">
+                                <p>این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.</p>
+                            </div>
+                        </div>
+
+                        <div class="single-review">
+                            <div class="review-heading">
+                                <div><a href="#"><i class="fa fa-user-alt"></i> علی</a></div>
+                                <div><a href="#"><i class="fa fa-clock"></i> 1400/10/01 - 6:00 بعد از ظهر</a></div>
+                                <div class="review-rating pull-right">
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star_alt empty"></i>
+                                </div>
+                            </div>
+                            <div class="review-body">
+                                <p>این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.</p>
+                            </div>
+                        </div>
+
+                        <div class="single-review">
+                            <div class="review-heading">
+                                <div><a href="#"><i class="fa fa-user-alt"></i> علی</a></div>
+                                <div><a href="#"><i class="fa fa-clock"></i> 1400/10/01 - 6:00 بعد از ظهر</a></div>
+                                <div class="review-rating pull-right">
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star"></i>
+                                    <i class="icon_star_alt empty"></i>
+                                </div>
+                            </div>
+                            <div class="review-body">
+                                <p>این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.</p>
+                            </div>
+                        </div>
+
+                        <ul class="reviews-pages">
+                            <li class="active">1</li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#"><i class="fa fa-caret-left"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 rw-form-pan">
+                    <h4>دیدگاه خود را بنویسید</h4>
+                    <p>آدرس ایمیل شما منتشر نخواهد شد.</p>
+                    <form class="review-form">
+                        <div class="form-group">
+                            <input class="input" type="text" placeholder="نام" />
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="email" placeholder="ایمیل" />
+                        </div>
+                        <div class="form-group">
+                            <textarea class="input" placeholder="دیدگاه شما"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-rating">
+                                <strong>امتیاز: </strong>
+                                <div class="stars">
+                                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+                                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+                                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+                                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+                                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-12">
+                            <button class="btn btn-outline-secondary w-100 mt-3"> ثبت دیدگاه</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- end main -->
+@section Scripts{
+    <script>
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+}

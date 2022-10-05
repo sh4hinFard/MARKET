@@ -1,0 +1,221 @@
+﻿@model IEnumerable<Be.Kala>
+@using System.Linq.Expressions;
+@using Microsoft.EntityFrameworkCore;
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+
+    Layout = "~/Views/Shared/_Layout_Home.cshtml";
+}
+@section Pre{
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>پنل مدیریت | جی کوئری ولیدیت</title>
+    <meta name="description" content="Some description for the page" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/images/favicon.png">
+    <link href="~/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+}
+
+@{
+    string pageId = HttpContextAccessor.HttpContext.Request.Query["pageId"];
+    int prev = 0;
+    int next = 0;
+    if (!string.IsNullOrEmpty(pageId))
+    {
+        int pid = int.Parse(pageId);
+        if (pid > 1)
+        {
+            prev = pid - 1;
+        }
+        else
+        {
+            prev = 0;
+        }
+
+        if (pid != ViewBag.Count)
+        {
+            next = pid + 1;
+        }
+        else
+        {
+            next = 0;
+        }
+    }
+    DAL.db db1 = new DAL.db();
+    var color = db1.Kala_Color.Include(i=>i.Color).ToList();
+    var size = db1.Kala_Size.Include(i => i.Size).ToList();
+
+}
+<div class="content-body">
+    <br />
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">لیست کالاها</h4>
+            </div>
+            <br />
+            <form asp-action="search" asp-controller="Kala">
+                <input name="text" class="form-control input-rounded mr-auto mb-md-0 mb-3" type="text"
+                       placeholder="عنوان مورد نظرتان را وارد کنید">
+                <br />
+                <button type="submit" class="btn btn-primary btn-rounded mr-auto mb-md-0 mb-3 col-lg-12">
+                    <i class="las la-search scale5 mr-3"></i>
+                </button>
+            </form>
+            <br />
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="hhh" class="table table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th><strong>تصویر </strong></th>
+                                <th><strong>نام </strong></th>
+                                <th><strong>قیمت </strong></th>
+                                <th><strong>تعداد</strong></th>
+                                <th><strong>رنگ</strong></th>
+                                <th><strong>سایز</strong></th>
+                                <th><strong>دسته</strong></th>
+                                <th><strong>ویرایش / حذف</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="~/images/product/@item.Pic" class="rounded-lg mr-2"
+                                             width="24" alt="" /> <span class="w-space-no"></span>
+                                    </div>
+                                </td>                              
+                                <td>@item.Name</td>
+                                <td>@item.Price</td>
+                                <td>@item.Count</td>
+                                @foreach (var a in color.Where(i=>i.KalaId == item.Id))
+                                {
+                                <td>
+                                   @a.Color.Name
+                                </td>
+                                }
+                                @foreach (var b in size.Where(i => i.KalaId == item.Id))
+                                {
+                                <td>@b.Size.Name</td>
+                                }
+                                <td>@item.Catogory.Title</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a asp-action="Update" asp-controller="Kala" asp-route-Id="@item.Id" class="btn btn-primary shadow btn-xs sharp mr-1">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a onclick="ffff(@item.Id);" class="btn btn-danger shadow btn-xs sharp">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th><strong>تصویر </strong></th>
+                                <th><strong>نام </strong></th>
+                                <th><strong>قیمت </strong></th>
+                                <th><strong>تعداد</strong></th>
+                                <th><strong>رنگ</strong></th>
+                                <th><strong>سایز</strong></th>
+                                <th><strong>دسته</strong></th>
+                                <th><strong>ویرایش / حذف</strong></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <br />
+                    <br />                  
+                    @if (ViewBag.item > 5)
+                    {
+                        <div class="text-center">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        @if (prev == 0)
+                                        {
+                                            <a class="page-link" disabled="disabled" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">قبلی</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="page-link" href="/Kala/Index?pageId=@prev" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                                <span class="sr-only">قبلی</span>
+                                            </a>
+                                        }
+
+                                    </li>
+                                    @for (int j = 1; j <= ((int)ViewBag.Count); j++)
+                                    {
+                                        <li class="@(((int)ViewBag.PageId == j) ? "active page-item" : "page-item")">
+                                            <a class="page-link" href="/Kala/Index?pageId=@j">@j</a>
+                                        </li>
+                                    }
+                                    <li class="page-item">
+                                        @if (next == 0)
+                                        {
+                                            <a class="page-link" disabled="disabled" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">بعدی</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="page-link" href="/Kala/Index?pageId=@next" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                                <span class="sr-only">بعدی</span>
+                                            </a>
+                                        }
+                                    </li>
+                                </ul>
+                            </nav>
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/vendor/bootstrap-datetimepicker/js/moment.js" type="text/javascript"></script>
+    <script src="~/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"
+            type="text/javascript"></script>
+    <script src="~/vendor/jquery-validation/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/js/plugins-init/jquery.validate-init.js" type="text/javascript"></script>
+    <script src="~/js/custom.min.js" type="text/javascript"></script>
+    <script>
+        function ffff(Id) {
+            var a = confirm('مطمئنید میخواهید حذف کنید؟');
+            if (a == true) {
+                $.ajax({
+                    url: "/Kala/delet",
+                    type: "Get",
+                    data: {
+                        id: Id
+                    }
+                }).done(function () {
+                    window.location.reload();
+                });
+              
+                             
+            }
+            else {
+                return false;
+            }
+
+        }
+    </script>
+}

@@ -1,0 +1,61 @@
+﻿
+@{
+}
+@model List<Be.Kala>
+<!-------- slider products اسلایدر محصولات------------>
+<div class="container-fluid">
+    <div class="product-slider shadow-one mt-3 pb-3">
+        <header class="header-slider">
+            <h2>محصولات</h2>
+
+        </header>
+        <div class="owl-carousel" id="product-slider-one">
+            @foreach (var Item in Model)
+            {
+                <div class="product">
+                    <div class="product-content">
+                        <div class="product-img">
+                            <a asp-action="Product_Page" asp-controller="User" asp-route-Id="@Item.Id">
+                                <img id="img" src="/images/product/@Item.Pic" alt="@Item.Name">
+                            </a>
+                        </div>
+                        <div class="product-btns">
+                            <a class="btn-product heart">
+                                <i class="fas fa-heart"></i> <span>افزودن به علاقه مندی</span>
+                            </a>
+                            <a class="btn-product exchange">
+                                <i class="fas fa-exchange-alt"></i> <span>مقایسه</span>
+                            </a>
+                            <a onclick = "addKalas(@Item.Id, '@Item.Name','@Item.Pic',@Item.Price);" class="btn-product shopping-cart">
+                                <i class="fas fa-shopping-cart"></i><span>افزودن به سبد</span>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <a id="name" class="product-name">@Item.Name</a>
+                        <p class="product-price">30000 تومان</p>
+                        <p id="Price" class="product-price">@Item.Price</p>
+                    </div>
+
+                  </div>
+                }
+        </div>
+    </div>
+</div>
+<script>
+    function addKalas(Id, Name, Pic, Price) {
+        $.ajax({
+            url: "/Home/Index",
+            type: "Post",
+            data: {
+                Id: Id,/*$("#Id").text(),*/
+                Name: Name,
+                Pic: Pic,
+                Price: Price,/*$("#name").text(),*/
+            },
+            
+        })
+    };
+</script>
+<!-- End slider products -->

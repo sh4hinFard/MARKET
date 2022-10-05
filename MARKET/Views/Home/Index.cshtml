@@ -1,0 +1,782 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Home_User.cshtml";
+}
+
+<!-- main -->
+<!----------------top slider and card collection-------------------->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-md-7 col-sm-12 ">
+            <div id="main-slider" class="carousel slide main-slider" data-bs-ride="carousel">
+                <!--<div class="carousel-indicators carousel-indicators-change bg-gradient">
+                    <img src="images/bg-1.jpg" data-bs-target="#main-slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                    <img src="images/bg-2.jpg" data-bs-target="#main-slider" data-bs-slide-to="1" aria-label="Slide 2">
+                    <img src="images/bg-4.jpg" data-bs-target="#main-slider" data-bs-slide-to="2" aria-label="Slide 3">
+                </div>-->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/User/images/bg-1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/User/images/banner03.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/User/images/bg-4.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#main-slider" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#main-slider" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-12">
+            <div id="p-slider" class="carousel slide main-slider" data-bs-ride="carousel">
+
+                <div class="carousel-indicators carousel-indicators-change bg-gradient">
+                    <img src="/User/images/dress-shirt-img.png" data-bs-target="#p-slider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                    <img src="/User/images/tshirt-img.png" data-bs-target="#p-slider" data-bs-slide-to="1" aria-label="Slide 2">
+                    <img src="/User/images/women-clothes-img.png" data-bs-target="#p-slider" data-bs-slide-to="2" aria-label="Slide 3">
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <!-- fashion section start -->
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="discount-product">
+                                <div class="shadow-post "></div>
+                                <h4 class="shirt_text">لباس مردانه</h4>
+                                <p class="price_text">قیمت <span style="color: #262626;">250000 تومان</span></p>
+                                <div class="tshirt_img"><img src="/User/images/dress-shirt-img.png"></div>
+
+                                <div class="btns">
+                                    <a href="#" class="style_btn">
+
+                                        <i class="fas fa-heart vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        <i class="fas fa-exchange-alt vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        افزودن به سبد
+                                        <i class="fas fa-shopping-cart vip-btn"></i>
+                                    </a>
+                                </div>
+
+                                <div class="countdown-container">
+                                    <div class="countdown-el days-c">
+                                        <p class="big-text days" id="days">0</p>
+                                        <span>روز</span>
+                                    </div>
+                                    <div class="countdown-el hours-c">
+                                        <p class="big-text hours" id="hours">0</p>
+                                        <span>ساعت</span>
+                                    </div>
+                                    <div class="countdown-el mins-c">
+                                        <p class="big-text mins" id="mins">0</p>
+                                        <span>دقیقه</span>
+                                    </div>
+                                    <div class="countdown-el seconds-c">
+                                        <p class="big-text seconds" id="seconds">0</p>
+                                        <span>ثانیه</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- fashion section end -->
+                    </div>
+                    <div class="carousel-item">
+                        <!-- fashion section start -->
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="discount-product">
+                                <div class="shadow-post "></div>
+                                <h4 class="shirt_text">لباس مردانه</h4>
+                                <p class="price_text">قیمت <span style="color: #262626;">250000 تومان</span></p>
+                                <div class="tshirt_img"><img src="/User/images/tshirt-img.png"></div>
+
+                                <div class="btns">
+                                    <a href="#" class="style_btn">
+
+                                        <i class="fas fa-heart vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        <i class="fas fa-exchange-alt vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        افزودن به سبد
+                                        <i class="fas fa-shopping-cart vip-btn"></i>
+                                    </a>
+                                </div>
+                                <div class="countdown-container">
+                                    <div class="countdown-el days-c">
+                                        <p class="big-text" id="days2">0</p>
+                                        <span>روز</span>
+                                    </div>
+                                    <div class="countdown-el hours-c">
+                                        <p class="big-text" id="hours2">0</p>
+                                        <span>ساعت</span>
+                                    </div>
+                                    <div class="countdown-el mins-c">
+                                        <p class="big-text" id="mins2">0</p>
+                                        <span>دقیقه</span>
+                                    </div>
+                                    <div class="countdown-el seconds-c">
+                                        <p class="big-text" id="seconds2">0</p>
+                                        <span>ثانیه</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fashion section end -->
+                    </div>
+                    <div class="carousel-item">
+                        <!-- fashion section start -->
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="discount-product">
+                                <div class="shadow-post "></div>
+                                <h4 class="shirt_text">لباس زنانه</h4>
+                                <p class="price_text">قیمت <span style="color: #262626;">250000 تومان</span></p>
+                                <div class="tshirt_img"><img src="/User/images/women-clothes-img.png"></div>
+
+                                <div class="btns">
+                                    <a href="#" class="style_btn">
+
+                                        <i class="fas fa-heart vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        <i class="fas fa-exchange-alt vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        افزودن به سبد
+                                        <i class="fas fa-shopping-cart vip-btn"></i>
+                                    </a>
+                                </div>
+                                <div class="countdown-container">
+                                    <div class="countdown-el days-c">
+                                        <p class="big-text" id="days3">0</p>
+                                        <span>روز</span>
+                                    </div>
+                                    <div class="countdown-el hours-c">
+                                        <p class="big-text" id="hours3">0</p>
+                                        <span>ساعت</span>
+                                    </div>
+                                    <div class="countdown-el mins-c">
+                                        <p class="big-text" id="mins3">0</p>
+                                        <span>دقیقه</span>
+                                    </div>
+                                    <div class="countdown-el seconds-c">
+                                        <p class="big-text" id="seconds3">0</p>
+                                        <span>ثانیه</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fashion section end -->
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="commercial">
+                <div class="card mb-3 bg-white ">
+                    <div class="row g-0">
+                        <div class="col-md-4 col-sm-4">
+                            <img src="images/product_6.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="card-body">
+                                <h5 class="card-title">عنوان مجموعه</h5>
+                                <p class="card-text">این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3 bg-white">
+                    <div class="row g-0">
+                        <div class="col-md-4 col-sm-4">
+                            <img src="images/product_5.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="card-body">
+                                <h5 class="card-title">عنوان مجموعه</h5>
+                                <p class="card-text">این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-white">
+                    <div class="row g-0">
+                        <div class="col-md-4 col-sm-4">
+                            <img src="images/product_2.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="card-body">
+                                <h5 class="card-title">عنوان مجموعه</h5>
+                                <p class="card-text">این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> -->
+        </div>
+    </div>
+
+</div>
+@await Component.InvokeAsync("Kalas");
+
+<!----------banner------------->
+<div class="min-banner container-fluid">
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <!-----banner slider ---->
+            <div id="carousel-min-banner" class="carousel slide carousel-min-banner" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item  active" data-bs-interval="10000">
+                        <div class="banner-slider-min">
+                            <img src="/User/images/banner08.jpg" alt="...">
+                            <div class="info">
+                                <h2>عنوان دسته محصول</h2>
+                                <p>
+                                    این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item " data-bs-interval="2000">
+                        <div class="banner-slider-min">
+                            <img src="/User/images/banner09.jpg" alt="...">
+                            <div class="info">
+                                <h2>عنوان دسته محصول</h2>
+                                <p>
+                                    این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-min-banner" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel-min-banner" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-------->
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <!-----banner slider ---->
+            <div id="carousel-min-banner-tow" class="carousel slide carousel-min-banner" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <div class="banner-slider-min">
+                            <img src="/User/images/banner06.jpg" alt="...">
+                            <div class="info">
+                                <h2>عنوان دسته محصول</h2>
+                                <p>
+                                    این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <div class="banner-slider-min">
+                            <img src="/User/images/banner07.jpg" alt="...">
+                            <div class="info">
+                                <h2>عنوان دسته محصول</h2>
+                                <p>
+                                    این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-min-banner-tow" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel-min-banner-tow" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!-------->
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 col-md-5 col-sm-12">
+            <div id="p-slider-two" class="carousel slide main-slider" data-bs-ride="carousel">
+
+                <div class="carousel-indicators carousel-indicators-change bg-gradient">
+                    <img src="/User/images/dress-shirt-img.png" data-bs-target="#p-slider-two" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                    <img src="/User/images/tshirt-img.png" data-bs-target="#p-slider-two" data-bs-slide-to="1" aria-label="Slide 2">
+                    <img src="/User/images/women-clothes-img.png" data-bs-target="#p-slider-two" data-bs-slide-to="2" aria-label="Slide 3">
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <!-- fashion section start -->
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="vip-product">
+                                <div class="shadow-post "></div>
+                                <h4 class="shirt_text">لباس مردانه</h4>
+                                <p class="price_text">قیمت <span style="color: #262626;">250000 تومان</span></p>
+                                <div class="tshirt_img"><img src="/User/images/dress-shirt-img.png"></div>
+
+                                <div class="btns">
+                                    <a href="#" class="style_btn">
+
+                                        <i class="fas fa-heart vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        <i class="fas fa-exchange-alt vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        <span> افزودن به سبد</span>
+                                        <i class="fas fa-shopping-cart vip-btn"></i>
+                                    </a>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <!-- fashion section end -->
+                    </div>
+                    <div class="carousel-item">
+                        <!-- fashion section start -->
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="vip-product">
+                                <div class="shadow-post "></div>
+                                <h4 class="shirt_text">لباس مردانه</h4>
+                                <p class="price_text">قیمت <span style="color: #262626;">250000 تومان</span></p>
+                                <div class="tshirt_img"><img src="/User/images/tshirt-img.png"></div>
+                                <div class="btns">
+                                    <a href="#" class="style_btn">
+
+                                        <i class="fas fa-heart vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        <i class="fas fa-exchange-alt vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        افزودن به سبد
+                                        <i class="fas fa-shopping-cart vip-btn"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fashion section end -->
+                    </div>
+                    <div class="carousel-item">
+                        <!-- fashion section start -->
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="vip-product">
+                                <div class="shadow-post "></div>
+                                <h4 class="shirt_text">لباس زنانه</h4>
+                                <p class="price_text">قیمت <span style="color: #262626;">250000 تومان</span></p>
+                                <div class="tshirt_img"><img src="/User/images/women-clothes-img.png"></div>
+                                <div class="btns">
+                                    <a href="#" class="style_btn">
+
+                                        <i class="fas fa-heart vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        <i class="fas fa-exchange-alt vip-btn"></i>
+                                    </a>
+                                    <a href="#" class="style_btn">
+                                        افزودن به سبد
+                                        <i class="fas fa-shopping-cart vip-btn"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- fashion section end -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-7 col-sm-12">
+            <!-------- slider products 2 اسلایدر محصولات------------>
+            <div class="product-slider shadow-one ">
+
+                <header class="header-slider">
+                    <h2>عنوان اسلایدر</h2>
+
+                </header>
+                <div class="owl-carousel" id="product-slider-two">
+
+                    <div class="product">
+
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="/User/images/product_1.png" alt="نام محصول در اینجا قرار میگیرد">
+                            </div>
+                            <div class="product-btns">
+                                <a href="#" class="btn-product heart">
+                                    <i class="fas fa-heart"></i> <span>افزودن به علاقه مندی</span>
+                                </a>
+                                <a href="#" class="btn-product exchange">
+                                    <i class="fas fa-exchange-alt"></i> <span>مقایسه</span>
+                                </a>
+                                <a href="#" class="btn-product shopping-cart">
+                                    <i class="fas fa-shopping-cart"></i><span>افزودن به سبد</span>
+
+
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="product-info">
+
+                            <a href="#" class="product-name">نام محصول در اینجا قرار میگیرد</a>
+                            <p class="product-price">30000 تومان</p>
+                            <p class="product-price">20000 تومان</p>
+                        </div>
+
+                    </div>
+                    <div class="product">
+                        <div class="off-info">
+                            <h2 class="sm-title">25% تخفیف</h2>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="/User/images/product_2.png" alt="نام محصول در اینجا قرار میگیرد">
+                            </div>
+                            <div class="product-btns">
+                                <a href="#" class="btn-product heart">
+                                    <i class="fas fa-heart"></i> <span>افزودن به علاقه مندی</span>
+                                </a>
+                                <a href="#" class="btn-product exchange">
+                                    <i class="fas fa-exchange-alt"></i> <span>مقایسه</span>
+                                </a>
+                                <a href="#" class="btn-product shopping-cart">
+                                    <i class="fas fa-shopping-cart"></i><span>افزودن به سبد</span>
+
+
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="product-info">
+
+                            <a href="#" class="product-name">نام محصول در اینجا قرار میگیرد</a>
+                            <p class="product-price">30000 تومان</p>
+                            <p class="product-price">20000 تومان</p>
+                        </div>
+
+                    </div>
+                    <div class="product">
+
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="/User/images/product_3.png" alt="نام محصول در اینجا قرار میگیرد">
+                            </div>
+                            <div class="product-btns">
+                                <a href="#" class="btn-product heart">
+                                    <i class="fas fa-heart"></i> <span>افزودن به علاقه مندی</span>
+                                </a>
+                                <a href="#" class="btn-product exchange">
+                                    <i class="fas fa-exchange-alt"></i> <span>مقایسه</span>
+                                </a>
+                                <a href="#" class="btn-product shopping-cart">
+                                    <i class="fas fa-shopping-cart"></i><span>افزودن به سبد</span>
+
+
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="product-info">
+
+                            <a href="#" class="product-name">نام محصول در اینجا قرار میگیرد</a>
+                            <p class="product-price">30000 تومان</p>
+                            <p class="product-price">20000 تومان</p>
+                        </div>
+
+                    </div>
+                    <div class="product">
+                        <div class="off-info">
+                            <h2 class="sm-title">25% تخفیف</h2>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="/User/images/product_4.png" alt="نام محصول در اینجا قرار میگیرد">
+                            </div>
+                            <div class="product-btns">
+                                <a href="#" class="btn-product heart">
+                                    <i class="fas fa-heart"></i> <span>افزودن به علاقه مندی</span>
+                                </a>
+                                <a href="#" class="btn-product exchange">
+                                    <i class="fas fa-exchange-alt"></i> <span>مقایسه</span>
+                                </a>
+                                <a href="#" class="btn-product shopping-cart">
+                                    <i class="fas fa-shopping-cart"></i><span>افزودن به سبد</span>
+
+
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="product-info">
+
+                            <a href="#" class="product-name">نام محصول در اینجا قرار میگیرد</a>
+                            <p class="product-price">30000 تومان</p>
+                            <p class="product-price">20000 تومان</p>
+                        </div>
+
+                    </div>
+                    <div class="product">
+
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="/User/images/product_5.png" alt="نام محصول در اینجا قرار میگیرد">
+                            </div>
+                            <div class="product-btns">
+                                <a href="#" class="btn-product heart">
+                                    <i class="fas fa-heart"></i> <span>افزودن به علاقه مندی</span>
+                                </a>
+                                <a href="#" class="btn-product exchange">
+                                    <i class="fas fa-exchange-alt"></i> <span>مقایسه</span>
+                                </a>
+                                <a href="#" class="btn-product shopping-cart">
+                                    <i class="fas fa-shopping-cart"></i><span>افزودن به سبد</span>
+
+
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="product-info">
+
+                            <a href="#" class="product-name">نام محصول در اینجا قرار میگیرد</a>
+                            <p class="product-price">30000 تومان</p>
+                            <p class="product-price">20000 تومان</p>
+                        </div>
+
+                    </div>
+                    <div class="product">
+
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="/User/images/product_6.png" alt="نام محصول در اینجا قرار میگیرد">
+                            </div>
+                            <div class="product-btns">
+                                <a href="#" class="btn-product heart">
+                                    <i class="fas fa-heart"></i> <span>افزودن به علاقه مندی</span>
+                                </a>
+                                <a href="#" class="btn-product exchange">
+                                    <i class="fas fa-exchange-alt"></i> <span>مقایسه</span>
+                                </a>
+                                <a href="#" class="btn-product shopping-cart">
+                                    <i class="fas fa-shopping-cart"></i><span>افزودن به سبد</span>
+
+
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="product-info">
+
+                            <a href="#" class="product-name">نام محصول در اینجا قرار میگیرد</a>
+                            <p class="product-price">30000 تومان</p>
+                            <p class="product-price">20000 تومان</p>
+                        </div>
+
+                    </div>
+                    <div class="product">
+                        <div class="off-info">
+                            <h2 class="sm-title">25% تخفیف</h2>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="/User/images/product_7.png" alt="نام محصول در اینجا قرار میگیرد">
+                            </div>
+                            <div class="product-btns">
+                                <a href="#" class="btn-product heart">
+                                    <i class="fas fa-heart"></i> <span>افزودن به علاقه مندی</span>
+                                </a>
+                                <a href="#" class="btn-product exchange">
+                                    <i class="fas fa-exchange-alt"></i> <span>مقایسه</span>
+                                </a>
+                                <a href="#" class="btn-product shopping-cart">
+                                    <i class="fas fa-shopping-cart"></i><span>افزودن به سبد</span>
+
+
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="product-info">
+
+                            <a href="#" class="product-name">نام محصول در اینجا قرار میگیرد</a>
+                            <p class="product-price">30000 تومان</p>
+                            <p class="product-price">20000 تومان</p>
+                        </div>
+
+                    </div>
+                    <div class="product">
+
+                        <div class="product-content">
+                            <div class="product-img">
+                                <img src="/User/images/product_8.png" alt="نام محصول در اینجا قرار میگیرد">
+                            </div>
+                            <div class="product-btns">
+                                <a href="#" class="btn-product heart">
+                                    <i class="fas fa-heart"></i> <span>افزودن به علاقه مندی</span>
+                                </a>
+                                <a href="#" class="btn-product exchange">
+                                    <i class="fas fa-exchange-alt"></i> <span>مقایسه</span>
+                                </a>
+                                <a href="#" class="btn-product shopping-cart">
+                                    <i class="fas fa-shopping-cart"></i><span>افزودن به سبد</span>
+
+
+                                </a>
+                            </div>
+
+
+                        </div>
+                        <div class="product-info">
+
+                            <a href="#" class="product-name">نام محصول در اینجا قرار میگیرد</a>
+                            <p class="product-price">30000 تومان</p>
+                            <p class="product-price">20000 تومان</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End slider products 2-->
+        </div>
+    </div>
+</div>
+<!-- blog start-->
+<div class="container-fluid mt-3 mb-4 pt-1 pb-3 bg-base">
+    <h2 class="Title-blog">مطالب وبلاگ</h2>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card blog">
+                <div class="shadow-post "></div>
+                <img src="/User/images/blog/blog-4.jpeg" alt="...">
+                <div class="card-title">
+                    <h2>عنوان انتخابی مطلب وبلاگ</h2>
+                </div>
+                <div class="card-body">
+                    <p class="blog-text">این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. </p>
+                </div>
+                <a href="#" class="show-post">
+                    <i class="fas fa fa-eye"></i> مشاهده مطلب
+                </a>
+                <div class="blog-info">
+                    <div class="blog-date">
+                        <i class="fas fa-calendar"></i> 8 آبان 1400
+                    </div>
+                    <div class="blog-comment">
+                        <i class="fas fa-comment"></i> 4 نظر
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card blog">
+                <div class="shadow-post "></div>
+                <img src="/User/images/blog/blog (2).jpeg" class="card-img-top" alt="...">
+                <div class="card-title">
+                    <h2>عنوان انتخابی مطلب وبلاگ</h2>
+                </div>
+                <div class="card-body">
+                    <p class="blog-text">این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. </p>
+                </div>
+                <a href="#" class="show-post">
+                    <i class="fas fa fa-eye"></i> مشاهده مطلب
+                </a>
+                <div class="blog-info">
+                    <div class="blog-date">
+                        <i class="fas fa-calendar"></i> 8 آبان 1400
+                    </div>
+                    <div class="blog-comment">
+                        <i class="fas fa-comment"></i> 4 نظر
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card blog">
+                <div class="shadow-post "></div>
+                <img src="/User/images/blog/blog (1).jpeg" class="card-img-top" alt="...">
+                <div class="card-title">
+                    <h2>عنوان انتخابی مطلب وبلاگ</h2>
+                </div>
+                <div class="card-body">
+                    <p class="blog-text">این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. </p>
+                </div>
+                <a href="#" class="show-post">
+                    <i class="fas fa fa-eye"></i> مشاهده مطلب
+
+                </a>
+                <div class="blog-info">
+                    <div class="blog-date">
+                        <i class="fas fa-calendar"></i> 8 آبان 1400
+                    </div>
+                    <div class="blog-comment">
+                        <i class="fas fa-comment"></i> 4 نظر
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 d-md-none d-lg-block col-sm-12">
+            <div class="card blog">
+                <div class="shadow-post "></div>
+                <img src="/User/images/blog/girl2.jpg" class="card-img-top" alt="...">
+                <div class="card-title">
+                    <h2>عنوان انتخابی مطلب وبلاگ</h2>
+                </div>
+                <div class="card-body">
+                    <p class="blog-text">این یک قالب فروشگاهی آماده جهت استفاده طراحان وب می باشد و تمام محصولات موجود در آن بعنوان نمونه طراحی است. </p>
+                </div>
+                <a href="#" class="show-post">
+                    <i class="fas fa fa-eye"></i> مشاهده مطلب
+
+                </a>
+                <div class="blog-info">
+                    <div class="blog-date">
+                        <i class="fas fa-calendar"></i> 8 آبان 1400
+                    </div>
+                    <div class="blog-comment">
+                        <i class="fas fa-comment"></i> 4 نظر
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--blog end-->
+<!-- end main -->

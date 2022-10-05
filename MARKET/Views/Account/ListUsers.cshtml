@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Be.User>
+@{
+
+    Layout = "~/Views/Shared/_Layout_Home.cshtml";
+}
+<div class="content-body">
+    <br />
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">لیست کالاها</h4>
+            </div>
+            <br />
+            <form asp-action="search" asp-controller="Kala">
+                <input name="text" class="form-control input-rounded mr-auto mb-md-0 mb-3" type="text"
+                       placeholder="عنوان مورد نظرتان را وارد کنید">
+                <br />
+                <button type="submit" class="btn btn-primary btn-rounded mr-auto mb-md-0 mb-3 col-lg-12">
+                    <i class="las la-search scale5 mr-3"></i>
+                </button>
+            </form>
+            <br />
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-responsive-md">
+                        <thead>
+                            <tr>
+                                <th><strong>نام کاربری</strong></th>
+                                <th><strong>ایمیل</strong></th>
+                                <th><strong>وضعیت حساب</strong></th>
+                                <th><strong>حذف/ویرایش</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                   
+                                    <td>@item.username</td>
+                                    <td>@item.email</td>
+                                    @if (item.IsActive)
+                                    {
+                                        <td>
+                                            <span class="badge light badge-success">فعال</span>
+                                        </td>
+                                    }
+                                    @if (!item.IsActive)
+                                    {
+                                        <td>
+                                            <span class="badge light badge-warning">غیرفعال</span>
+                                        </td>
+                                    }
+                                    <td>
+
+                                        <div class="d-flex">
+                                            <a asp-action="Update" asp-controller="Kala" asp-route-Id="@item.Id" class="btn btn-primary shadow btn-xs sharp mr-1">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a asp-action="delet" asp-controller="Kala" asp-route-id="@item.Id" class="btn btn-danger shadow btn-xs sharp">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                        <thead>
+                            <tr>
+
+                                <th><strong>نام کاربری</strong></th>
+                                <th><strong>ایمیل</strong></th>
+                                <th><strong>وضعیت حساب</strong></th>
+                                <th><strong>حذف/ویرایش</strong></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <br />
+                    <br />
+                    <ul class="pagination pagination-circle">
+                        <li class="page-item page-indicator">
+                            <a class="page-link">
+                                <i class="la la-angle-left"></i>
+                            </a>
+                        </li>
+                        @{
+                            BLL.BL_kala blk = new BLL.BL_kala();
+                            int f = blk.gettotal();
+                            int count;
+                            if (f % 10 == 0) count = f / 10;
+                            else count = (f / 10) + 1; }
+                        @{ for (var i = 0; i < count; ++i)
+                            {
+                                <li class="page-item">
+                                    <a asp-action="getskip" asp-controller="Kala" class="page-link" asp-route-c="@i">@i</a>
+                                </li>
+                            }
+                        }
+                        <li class="page-item page-indicator">
+                            <a asp-action="skip" asp-controller="Kala" class="page-link">
+                                <i class="la la-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model MARKET.Models.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_Layout_Home_User.cshtml";
+}
+@if (ViewBag.Success != null && ViewBag.Success == true)
+{
+    <div class="alert alert-success">
+        <h4>ثبت نام شما با موفقیت انجام شد</h4>
+    </div>
+}
+<form asp-action="Register" method="post" enctype="multipart/form-data">
+    @*<div asp-validation-summary="All" class="text-danger">
+        </div>*@
+    <div class="col-md-6">
+        <div class="col-md-12">
+            <label>نام کاربری</label>
+            <input type="text" asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="col-md-12">
+            <label>ایمیل</label>
+            <input type="email" asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="col-md-12">
+            <label>کلمه عبور</label>
+            <input type="password" asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="col-md-12">
+            <label>تکرار کلمه عبور</label>
+            <input type="password" asp-for="RePassword" class="form-control" />
+            <span asp-validation-for="RePassword" class="text-danger"></span>
+        </div>
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-primary" value="ثبت نام" />
+        </div>
+    </div>
+</form>
+@section Scripts
+{
+    <script src="/User/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/User/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

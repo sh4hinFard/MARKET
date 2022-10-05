@@ -1,0 +1,18 @@
+﻿@model Be.User
+@{
+    Layout = "~/Views/Shared/_Layout_Home_User.cshtml";
+}
+@if (ViewBag.Success != null || ViewBag.Success == true)
+{
+    <div class="alert alert-success">
+        <h4>کاربر @Model.username عزیز، حساب کاربری شما با موفقیت فعال شد</h4>
+        <p>می توانید ورود بزنید و وارد سایت شوید</p>
+        <a href="/Login" class="btn btn-danger">ورود به سایت</a>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        <h4>کاربری با این مشخصات یافت نشد</h4>
+    </div>
+}

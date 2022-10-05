@@ -1,0 +1,9 @@
+﻿@model Be.User
+
+<div style="direction: rtl; padding: 20px">
+    <h2>@Model.username عزیز !</h2>
+    <p>برای تغییر کلمه عبور خود روی لینک زیر کلیک کنید</p>
+    <p>
+        <a href="https://localhost:44330/Account/ResetPassword/@Model.ActiveCode">تغییر کلمه عبور</a>
+    </p>
+</div>
